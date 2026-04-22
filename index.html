@@ -4,214 +4,287 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="favicon.png">
-    <title>钛极数字 - 企业数字化转型解决方案</title>
+    <title>钛极数字 - 企业数字化转型解决方案提供商</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style/index.css">
 </head>
-<body class="bg-gray-50 min-h-screen">
-    <!-- 头部 -->
-    <header class="gradient-bg text-white py-16 px-4">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="mb-6">
-                <i class="fas fa-rocket text-6xl mb-4 opacity-90"></i>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">钛极数字</h1>
-                <p class="text-xl opacity-90 max-w-2xl mx-auto">企业数字化转型解决方案提供商，助力中小企业轻松实现数字化</p>
+<body class="bg-white">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full top-0 left-0 z-50 transition-all duration-300 bg-transparent">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">钛</span>
+                    </div>
+                    <span class="text-2xl font-bold text-gray-800">钛极数字</span>
+                </div>
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#services" class="text-gray-600 hover:text-blue-600 font-medium transition">服务</a>
+                    <a href="#solutions" class="text-gray-600 hover:text-blue-600 font-medium transition">解决方案</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 font-medium transition">关于我们</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 font-medium transition">联系我们</a>
+                </div>
+                <a href="#contact" class="hidden md:block bg-blue-600 text-white px-6 py-2 rounded-full font-medium hover:bg-blue-700 transition">立即咨询</a>
             </div>
-            
-            <!-- 搜索框 -->
-            <div class="max-w-xl mx-auto mt-8">
-                <div class="relative">
-                    <input type="text" id="searchInput" placeholder="搜索落地页..." 
-                           class="w-full px-6 py-4 rounded-full text-gray-800 shadow-lg focus:outline-none focus:ring-4 focus:ring-white/30 text-lg">
-                    <i class="fas fa-search absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section class="gradient-hero text-white pt-32 pb-20 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                    让中小企业<br>
+                    <span class="text-blue-200">轻松实现数字化转型</span>
+                </h1>
+                <p class="text-xl md:text-2xl opacity-90 mb-10 leading-relaxed">
+                    专注为中小企业提供定制化数字化解决方案<br>
+                    收银 · 进销存 · 会员 · CRM · 线上一体化
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#contact" class="bg-white text-blue-700 px-8 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition">
+                        <i class="fas fa-phone-alt mr-2"></i>
+                        免费咨询方案
+                    </a>
+                    <a href="#solutions" class="bg-white/20 backdrop-blur text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-white/30 transition">
+                        <i class="fas fa-briefcase mr-2"></i>
+                        查看行业方案
+                    </a>
+                </div>
+            </div>
+
+            <!-- 数据统计 -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white mb-2">100+</div>
+                    <div class="text-blue-100">服务企业</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white mb-2">10+</div>
+                    <div class="text-blue-100">覆盖行业</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white mb-2">98%</div>
+                    <div class="text-blue-100">客户满意度</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white mb-2">7×24</div>
+                    <div class="text-blue-100">技术支持</div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- 统计数据 -->
-    <div class="max-w-6xl mx-auto px-4 -mt-8">
-        <div class="bg-white rounded-2xl shadow-xl p-6 grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="text-center">
-                <div class="text-3xl font-bold text-purple-600">4</div>
-                <div class="text-gray-500 text-sm">可用模板</div>
+    <!-- 我们的服务 -->
+    <section id="services" class="section-padding px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-sm text-blue-600 font-semibold uppercase tracking-wider mb-2">我们的服务</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800">全方位数字化服务</h3>
             </div>
-            <div class="text-center">
-                <div class="text-3xl font-bold text-purple-600">10+</div>
-                <div class="text-gray-500 text-sm">行业覆盖</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl font-bold text-purple-600">100%</div>
-                <div class="text-gray-500 text-sm">响应式适配</div>
-            </div>
-            <div class="text-center">
-                <div class="text-3xl font-bold text-purple-600">0</div>
-                <div class="text-gray-500 text-sm">代码可直接用</div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 gradient-card rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-laptop-code text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">系统定制开发</h4>
+                    <p class="text-gray-600 leading-relaxed">根据您的业务需求，定制开发专属数字化管理系统，完美匹配业务流程</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 gradient-card-alt rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-cloud-upload-alt text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">一键快速部署</h4>
+                    <p class="text-gray-600 leading-relaxed">标准化方案最快1天上线，无需漫长等待，立即投入使用</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 shadow-lg card-hover">
+                    <div class="w-16 h-16 gradient-card-green rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-headset text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800 mb-3">全程技术服务</h4>
+                    <p class="text-gray-600 leading-relaxed">一对一培训，7×24小时技术支持，包教包会，持续升级优化</p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- 导航卡片区域 -->
-    <main class="max-w-6xl mx-auto px-4 py-16">
-        <h2 class="text-2xl font-bold text-gray-800 mb-8 flex items-center">
-            <i class="fas fa-th-large mr-3 text-purple-600"></i>
-            落地页模板库
-        </h2>
-        
-        <div id="templateGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- 商超便利店 -->
-            <a href="https://github.com/yuj1nfeng/supermarket-digitalization" target="_blank" 
-               class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden block">
-                <div class="h-48 bg-gradient-to-br from-orange-400 to-pink-500 flex items-center justify-center">
-                    <i class="fas fa-store text-white text-6xl opacity-90"></i>
-                </div>
-                <div class="p-6">
-                    <span class="category-badge text-white text-xs px-3 py-1 rounded-full font-medium">零售电商</span>
-                    <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">商超便利店数字化</h3>
-                    <p class="text-gray-500 text-sm mb-4">完整的超市管理系统，包含POS收银、进销存、会员管理、小程序</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Docker部署</span>
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">开源</span>
-                        </div>
-                        <i class="fas fa-arrow-right text-purple-600"></i>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 店铺地图标注 -->
-            <a href="map.html" class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden block">
-                <div class="h-48 bg-gradient-to-br from-green-400 to-cyan-500 flex items-center justify-center">
-                    <i class="fas fa-map-marked-alt text-white text-6xl opacity-90"></i>
-                </div>
-                <div class="p-6">
-                    <span class="category-badge text-white text-xs px-3 py-1 rounded-full font-medium">本地生活</span>
-                    <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">店铺地图标注系统</h3>
-                    <p class="text-gray-500 text-sm mb-4">一键生成店铺位置地图，支持多平台地图导航，微信分享</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">移动端</span>
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">微信优化</span>
-                        </div>
-                        <i class="fas fa-arrow-right text-purple-600"></i>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 通用落地页 -->
-            <a href="landing.html" class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden block">
-                <div class="h-48 bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center">
-                    <i class="fas fa-pager text-white text-6xl opacity-90"></i>
-                </div>
-                <div class="p-6">
-                    <span class="category-badge text-white text-xs px-3 py-1 rounded-full font-medium">通用模板</span>
-                    <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">通用营销落地页</h3>
-                    <p class="text-gray-500 text-sm mb-4">精美设计的产品营销落地页，支持自定义配置，高转化率</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">Tailwind</span>
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">响应式</span>
-                        </div>
-                        <i class="fas fa-arrow-right text-purple-600"></i>
-                    </div>
-                </div>
-            </a>
-
-            <!-- POS收银系统 -->
-            <a href="pos.html" class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden block">
-                <div class="h-48 bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
-                    <i class="fas fa-cash-register text-white text-6xl opacity-90"></i>
-                </div>
-                <div class="p-6">
-                    <span class="category-badge text-white text-xs px-3 py-1 rounded-full font-medium">收银系统</span>
-                    <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">POS收银系统展示页</h3>
-                    <p class="text-gray-500 text-sm mb-4">功能完整的POS收银系统演示页，支持触屏操作，适合门店</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">触屏优化</span>
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">演示版</span>
-                        </div>
-                        <i class="fas fa-arrow-right text-purple-600"></i>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 装修装饰公司 -->
-            <a href="decoration.html" class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden block">
-                <div class="h-48 bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
-                    <i class="fas fa-hard-hat text-white text-6xl opacity-90"></i>
-                </div>
-                <div class="p-6">
-                    <span class="category-badge text-white text-xs px-3 py-1 rounded-full font-medium">装修装饰</span>
-                    <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">装修装饰公司</h3>
-                    <p class="text-gray-500 text-sm mb-4">装修公司数字化方案，客户管理、项目进度、工单系统</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">施工管理</span>
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">CRM</span>
-                        </div>
-                        <i class="fas fa-arrow-right text-purple-600"></i>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 餐饮行业 -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden opacity-60">
-                <div class="h-48 bg-gradient-to-br from-red-400 to-orange-500 flex items-center justify-center">
-                    <i class="fas fa-utensils text-white text-6xl opacity-90"></i>
-                </div>
-                <div class="p-6">
-                    <span class="bg-gray-300 text-gray-600 text-xs px-3 py-1 rounded-full font-medium">即将上线</span>
-                    <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">餐饮行业解决方案</h3>
-                    <p class="text-gray-500 text-sm mb-4">扫码点餐、外卖管理、后厨打印、会员系统一体化</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">小程序</span>
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">点餐系统</span>
-                        </div>
-                        <i class="fas fa-clock text-gray-400"></i>
-                    </div>
-                </div>
+    <!-- 行业解决方案 -->
+    <section id="solutions" class="section-padding px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-sm text-blue-600 font-semibold uppercase tracking-wider mb-2">行业解决方案</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800">深耕不同行业，匹配业务需求</h3>
             </div>
 
-            <!-- 美业行业 -->
-            <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden opacity-60">
-                <div class="h-48 bg-gradient-to-br from-pink-400 to-rose-500 flex items-center justify-center">
-                    <i class="fas fa-spa text-white text-6xl opacity-90"></i>
-                </div>
-                <div class="p-6">
-                    <span class="bg-gray-300 text-gray-600 text-xs px-3 py-1 rounded-full font-medium">即将上线</span>
-                    <h3 class="text-xl font-bold text-gray-800 mt-3 mb-2">美业门店管理</h3>
-                    <p class="text-gray-500 text-sm mb-4">美容美发美甲店预约系统、会员储值、技师管理</p>
-                    <div class="flex items-center justify-between">
-                        <div class="flex gap-2">
-                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">预约系统</span>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 商超便利店 -->
+                <a href="landing/pos.html" class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover block">
+                    <div class="h-40 bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center">
+                        <i class="fas fa-store text-white text-6xl opacity-90"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full font-medium mb-3">零售便利店</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">商超便利店数字化</h4>
+                        <p class="text-gray-600 mb-4">进销存+收银+会员+线上团购一体化，完整解决方案</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">收银系统</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">进销存</span>
                             <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">会员CRM</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">小程序</span>
                         </div>
-                        <i class="fas fa-clock text-gray-400"></i>
                     </div>
-                </div>
+                </a>
+
+                <!-- 装修装饰 -->
+                <a href="landing/decoration.html" class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover block">
+                    <div class="h-40 bg-gradient-to-r from-orange-400 to-red-500 flex items-center justify-center">
+                        <i class="fas fa-hard-hat text-white text-6xl opacity-90"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-orange-100 text-orange-700 text-xs px-3 py-1 rounded-full font-medium mb-3">装修装饰</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">装修公司全流程管理</h4>
+                        <p class="text-gray-600 mb-4">项目+客户+施工+材料+财务一体化数字化管理</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">项目管理</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">客户CRM</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">施工进度</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">材料管理</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 地图标注 -->
+                <a href="landing/map.html" class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover block">
+                    <div class="h-40 bg-gradient-to-r from-indigo-500 to-purple-500 flex items-center justify-center">
+                        <i class="fas fa-map-marked-alt text-white text-6xl opacity-90"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-indigo-100 text-indigo-700 text-xs px-3 py-1 rounded-full font-medium mb-3">本地生活服务</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">店铺地图标注</h4>
+                        <p class="text-gray-600 mb-4">全平台地图标注，让客户快速找到您的店铺</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">百度地图</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">高德地图</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">微信分享</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">永久有效</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- 通用营销落地页 -->
+                <a href="landing/landing.html" class="bg-white rounded-2xl overflow-hidden shadow-lg card-hover block">
+                    <div class="h-40 bg-gradient-to-r from-green-400 to-teal-500 flex items-center justify-center">
+                        <i class="fas fa-bullhorn text-white text-6xl opacity-90"></i>
+                    </div>
+                    <div class="p-6">
+                        <span class="inline-block bg-green-100 text-green-700 text-xs px-3 py-1 rounded-full font-medium mb-3">营销获客</span>
+                        <h4 class="text-xl font-bold text-gray-800 mb-2">通用营销落地页</h4>
+                        <p class="text-gray-600 mb-4">精美营销落地页，高转化率，支持快速定制</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">响应式</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">移动端优先</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-2 py-1 rounded">快速上线</span>
+                        </div>
+                    </div>
+                </a>
             </div>
 
+            <div class="text-center mt-12">
+                <p class="text-gray-500">更多行业解决方案持续更新中...</p>
+            </div>
         </div>
-    </main>
+    </section>
 
-    <!-- 底部 -->
-    <footer class="bg-gray-900 text-white py-12 px-4">
-        <div class="max-w-6xl mx-auto text-center">
-            <div class="mb-6">
-                <i class="fas fa-rocket text-4xl mb-4 text-purple-400"></i>
-                <h3 class="text-2xl font-bold mb-2">钛极数字</h3>
-                <p class="text-gray-400">让每个行业都有好用的数字化解决方案</p>
-                <div class="mt-4 text-sm text-gray-500">
-                    <p>📞 微信/电话：13392819007</p>
-                    <p class="mt-1">📧 邮箱：yujf1007@gmail.com</p>
+    <!-- 为什么选择我们 -->
+    <section id="about" class="section-padding px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-sm text-blue-600 font-semibold uppercase tracking-wider mb-2">为什么选择我们</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-800">专业团队，靠谱服务</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-bolt"></i></div>
+                    <h4 class="font-bold text-lg mb-2">快速上线</h4>
+                    <p class="text-gray-600 text-sm">标准化方案最快1天就能上线使用，不耽误生意</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-cogs"></i></div>
+                    <h4 class="font-bold text-lg mb-2">按需定制</h4>
+                    <p class="text-gray-600 text-sm">不是套通用模板，真正匹配您的业务流程</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-headphones"></i></div>
+                    <h4 class="font-bold text-lg mb-2">持续服务</h4>
+                    <p class="text-gray-600 text-sm">包教包会，7×24小时技术支持，有问题随时找得到人</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <div class="text-blue-600 text-3xl mb-4"><i class="fas fa-shield-alt"></i></div>
+                    <h4 class="font-bold text-lg mb-2">数据安全</h4>
+                    <p class="text-gray-600 text-sm">云端多重备份，银行级安全加密，数据不丢失</p>
                 </div>
             </div>
-            <div class="border-t border-gray-800 pt-6 mt-6">
-                <p class="text-gray-500 text-sm">© 2025 钛极数字. All rights reserved. | 用 ❤️ 打造</p>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="section-padding px-4 gradient-card text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-sm text-white/80 font-semibold uppercase tracking-wider mb-2">联系我们</h2>
+            <h3 class="text-3xl md:text-4xl font-bold mb-8">立即咨询，免费获取方案</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                    <i class="fas fa-phone-alt text-3xl mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">电话 / 微信</h4>
+                    <p class="text-xl font-semibold">13392819007</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur rounded-xl p-6">
+                    <i class="fas fa-envelope text-3xl mb-4"></i>
+                    <h4 class="font-bold text-xl mb-2">邮箱</h4>
+                    <p class="text-lg font-semibold">yujf1007@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="mt-10 bg-white/10 backdrop-blur rounded-xl p-8 max-w-2xl mx-auto">
+                <p class="text-lg leading-relaxed">
+                    如果您有数字化转型需求，欢迎随时联系我们。<br>
+                    我们会根据您的业务情况，免费为您定制专属解决方案。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center gap-2 mb-2">
+                        <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">钛</span>
+                        </div>
+                        <span class="text-xl font-bold">钛极数字</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">企业数字化转型解决方案提供商</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="tel:13392819007" class="text-gray-400 hover:text-white transition">
+                        <i class="fas fa-phone-alt mr-1"></i> 13392819007
+                    </a>
+                    <a href="mailto:yujf1007@gmail.com" class="text-gray-400 hover:text-white transition">
+                        <i class="fas fa-envelope mr-1"></i> 邮箱
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 钛极数字. All rights reserved. | 用 ❤️ 打造</p>
             </div>
         </div>
     </footer>

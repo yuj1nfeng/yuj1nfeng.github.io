@@ -1,31 +1,24 @@
-// 搜索功能
-const searchInput = document.getElementById('searchInput');
-const templateGrid = document.getElementById('templateGrid');
+// 导航栏滚动效果
+const navbar = document.getElementById('navbar');
 
-searchInput.addEventListener('input', function(e) {
-    const searchTerm = e.target.value.toLowerCase();
-    const cards = templateGrid.querySelectorAll('a, div.card-hover');
-
-    cards.forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        const desc = card.querySelector('p').textContent.toLowerCase();
-        const badges = Array.from(card.querySelectorAll('span')).map(s => s.textContent.toLowerCase()).join(' ');
-
-        if (title.includes(searchTerm) || desc.includes(searchTerm) || badges.includes(searchTerm)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
+window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+        navbar.classList.add('nav-scrolled');
+    } else {
+        navbar.classList.remove('nav-scrolled');
+    }
 });
 
-// 回车搜索
-searchInput.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-        // 添加搜索动画效果
-        this.classList.add('ring-4', 'ring-white/50');
-        setTimeout(() => {
-            this.classList.remove('ring-4', 'ring-white/50');
-        }, 300);
-    }
+// 平滑滚动
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
 });

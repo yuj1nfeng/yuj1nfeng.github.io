@@ -1,11 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #64748b;
+    --dark: #1e293b;
+    --light: #f8fafc;
+}
 
 body {
     font-family: 'Inter', sans-serif;
 }
 
-.gradient-bg {
+.gradient-hero {
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}
+
+.gradient-card {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.gradient-card-alt {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.gradient-card-green {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.gradient-card-orange {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
 }
 
 .card-hover {
@@ -17,8 +41,8 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
-.category-badge {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+.section-padding {
+    padding: 80px 0;
 }
 
 /* 防止横向滚动 */
@@ -29,4 +53,11 @@ html, body {
 
 * {
     box-sizing: border-box;
+}
+
+/* 导航栏滚动效果 */
+.nav-scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
