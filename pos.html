@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>便利店数字化解决方案 - 进销存+收银+会员+线上一体化</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+        }
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(180deg, #0ea5e9 0%, #2563eb 50%, #1d4ed8 100%);
+            min-height: 100vh;
+            padding-bottom: 30px;
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+        .page {
+            max-width: 750px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 15px;
+            overflow-x: hidden;
+            box-sizing: border-box;
+        }
+        .header {
+            text-align: center;
+            padding: 35px 0 25px;
+            color: white;
+        }
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 26px;
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+        .header .subtitle {
+            font-size: 15px;
+            opacity: 0.95;
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 15px;
+            margin-top: 10px;
+        }
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            padding: 15px 0;
+        }
+        .tag {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 22px 18px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .card-title span {
+            font-size: 22px;
+        }
+        .pain-list {
+            display: grid;
+            gap: 12px;
+        }
+        .pain-item {
+            display: flex;
+            gap: 12px;
+            padding: 14px;
+            background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+        }
+        .pain-icon {
+            width: 36px;
+            height: 36px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .pain-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #991b1b;
+            margin-bottom: 3px;
+        }
+        .pain-content p {
+            font-size: 12px;
+            color: #7f1d1d;
+            line-height: 1.4;
+        }
+        .goals-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .goal-item {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-radius: 12px;
+            padding: 15px 12px;
+            text-align: center;
+            border-top: 3px solid #0ea5e9;
+        }
+        .goal-item .icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .goal-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0c4a6e;
+            margin-bottom: 3px;
+        }
+        .goal-item p {
+            font-size: 11px;
+            color: #0369a1;
+        }
+        .modules {
+            display: grid;
+            gap: 15px;
+        }
+        .module-item {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 14px;
+            padding: 18px;
+            border-left: 4px solid #3b82f6;
+        }
+        .module-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .module-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+        .module-header h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+        }
+        .module-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .feature-tag {
+            background: white;
+            padding: 4px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+        }
+        .steps {
+            display: grid;
+            gap: 12px;
+        }
+        .step-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+        .step-num {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .step-content {
+            flex: 1;
+            background: #f0fdf4;
+            border-radius: 12px;
+            padding: 14px;
+        }
+        .step-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #065f46;
+            margin-bottom: 4px;
+        }
+        .step-content p {
+            font-size: 12px;
+            color: #047857;
+        }
+        .shop-types {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .shop-type {
+            text-align: center;
+            padding: 15px 8px;
+            background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+            border-radius: 12px;
+        }
+        .shop-type .icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .shop-type p {
+            font-size: 11px;
+            color: #6b21a8;
+            font-weight: 500;
+        }
+        .benefits {
+            display: grid;
+            gap: 12px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+            border-radius: 12px;
+        }
+        .benefit-num {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            flex-shrink: 0;
+        }
+        .benefit-num .num {
+            font-size: 20px;
+            font-weight: 800;
+        }
+        .benefit-num .unit {
+            font-size: 10px;
+        }
+        .benefit-content {
+            flex: 1;
+        }
+        .benefit-content h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #065f46;
+            margin-bottom: 3px;
+        }
+        .benefit-content p {
+            font-size: 12px;
+            color: #047857;
+        }
+        .summary-card {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            color: white;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(30, 64, 175, 0.3);
+        }
+        .summary-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .summary-card p {
+            font-size: 14px;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 25px 15px 15px;
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        .section-divider {
+            text-align: center;
+            padding: 10px 0;
+        }
+        .section-divider span {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 5px 18px;
+            border-radius: 15px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="page">
+        <div class="header">
+            <div class="logo">
+                <span>🏪</span>
+                <span>便利店数字化专家</span>
+            </div>
+            <h1>社区便利店 & 社区超市<br>全场景数字化解决方案</h1>
+            <div class="subtitle">进销存 + 收银 + 会员 + 线上一体化</div>
+        </div>
+
+        <div class="tags">
+            <span class="tag">👨‍👩‍👧 夫妻店</span>
+            <span class="tag">🏬 连锁便利店</span>
+            <span class="tag">🥬 社区生鲜超市</span>
+            <span class="tag">🛒 社区团购店</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>😫</span>
+                六大核心痛点，您是否也在经历？
+            </h3>
+            <div class="pain-list">
+                <div class="pain-item">
+                    <div class="pain-icon">📦</div>
+                    <div class="pain-content">
+                        <h4>库存混乱</h4>
+                        <p>进货靠经验，临期过期损耗大，盘点全靠人工</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">💲</div>
+                    <div class="pain-content">
+                        <h4>价格管理乱</h4>
+                        <p>多店价格不统一，改价麻烦，易卖错少收钱</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">👥</div>
+                    <div class="pain-content">
+                        <h4>会员无体系</h4>
+                        <p>老顾客靠熟脸，无储值积分，被外卖平台抢生意</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">📊</div>
+                    <div class="pain-content">
+                        <h4>对账麻烦</h4>
+                        <p>现金微信支付宝混一起，每天营业额算不清</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">⏰</div>
+                    <div class="pain-content">
+                        <h4>运营效率低</h4>
+                        <p>进货补货盘点全靠人工，老板天天盯店</p>
+                    </div>
+                </div>
+                <div class="pain-item">
+                    <div class="pain-icon">📱</div>
+                    <div class="pain-content">
+                        <h4>缺少线上能力</h4>
+                        <p>不会做社群、社区配送，只能被动等客上门</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span>💡 一套系统，全部解决</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>🎯</span>
+                方案总体目标
+            </h3>
+            <div class="goals-grid">
+                <div class="goal-item">
+                    <div class="icon">💳</div>
+                    <h4>收银高效化</h4>
+                    <p>多渠道收款自动对账，杜绝错账</p>
+                </div>
+                <div class="goal-item">
+                    <div class="icon">👥</div>
+                    <h4>会员精细化</h4>
+                    <p>储值积分优惠券，社群运营闭环</p>
+                </div>
+                <div class="goal-item">
+                    <div class="icon">📈</div>
+                    <h4>经营数据化</h4>
+                    <p>手机实时看营业额、毛利、畅销品</p>
+                </div>
+                <div class="goal-item">
+                    <div class="icon">🛒</div>
+                    <h4>线上线下一体化</h4>
+                    <p>到店+自提+社区配送，提升营收</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span>🔧 六大核心功能模块</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>⚙️</span>
+                系统整体架构
+            </h3>
+            <div class="modules" style="gap: 10px; grid-template-columns: 1fr 1fr; display: grid;">
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">💻</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">前台收银端</h4>
+                        <p style="font-size: 11px; color: #64748b;">收银机/手机收银</p>
+                    </div>
+                </div>
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">🖥️</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">后台管理端</h4>
+                        <p style="font-size: 11px; color: #64748b;">商品库存会员财务</p>
+                    </div>
+                </div>
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">📱</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">老板移动端</h4>
+                        <p style="font-size: 11px; color: #64748b;">微信小程序看数据</p>
+                    </div>
+                </div>
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">🛍️</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">顾客小程序端</h4>
+                        <p style="font-size: 11px; color: #64748b;">下单充值领券查积分</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>💰</span>
+                模块一：智能收银系统
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">扫码收款</span>
+                <span class="feature-tag">微信支付宝</span>
+                <span class="feature-tag">云闪付</span>
+                <span class="feature-tag">一码支付</span>
+                <span class="feature-tag">语音播报</span>
+                <span class="feature-tag">小票打印</span>
+                <span class="feature-tag">挂单抹零</span>
+                <span class="feature-tag">优惠折扣</span>
+                <span class="feature-tag">交接班统计</span>
+                <span class="feature-tag">防作弊日志</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📦</span>
+                模块二：商品 & 进销存管理
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">条码一键录入</span>
+                <span class="feature-tag">批量导入</span>
+                <span class="feature-tag">分类管理</span>
+                <span class="feature-tag">采购入库</span>
+                <span class="feature-tag">进价记录</span>
+                <span class="feature-tag">实时扣库存</span>
+                <span class="feature-tag">库存预警</span>
+                <span class="feature-tag">手机扫码盘点</span>
+                <span class="feature-tag">盈亏报表</span>
+                <span class="feature-tag">临期提醒</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>👥</span>
+                模块三：会员营销体系
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">一键开卡</span>
+                <span class="feature-tag">储值赠送</span>
+                <span class="feature-tag">消费积分</span>
+                <span class="feature-tag">积分抵现</span>
+                <span class="feature-tag">满减券</span>
+                <span class="feature-tag">折扣券</span>
+                <span class="feature-tag">新人券</span>
+                <span class="feature-tag">节日券</span>
+                <span class="feature-tag">顾客画像</span>
+                <span class="feature-tag">生日提醒</span>
+                <span class="feature-tag">沉睡唤醒</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>🛒</span>
+                模块四：社区团购 & 线上小程序
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">微信小程序下单</span>
+                <span class="feature-tag">到店自提</span>
+                <span class="feature-tag">社区配送</span>
+                <span class="feature-tag">预售模式</span>
+                <span class="feature-tag">生鲜水果预订</span>
+                <span class="feature-tag">社群接龙</span>
+                <span class="feature-tag">拼团活动</span>
+                <span class="feature-tag">订单自动同步</span>
+                <span class="feature-tag">库存自动扣减</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📊</span>
+                模块五：财务报表 + 模块六：员工管理
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">营业额报表</span>
+                <span class="feature-tag">毛利分析</span>
+                <span class="feature-tag">畅销/滞销品</span>
+                <span class="feature-tag">会员消费占比</span>
+                <span class="feature-tag">供应商对账</span>
+                <span class="feature-tag">多店数据查看</span>
+                <span class="feature-tag">权限管理</span>
+                <span class="feature-tag">销售提成</span>
+                <span class="feature-tag">打卡排班</span>
+                <span class="feature-tag">操作日志</span>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span>🚀 分阶段落地，最快1天上手</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📅</span>
+                实施步骤
+            </h3>
+            <div class="steps">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>基础上线（1天）</h4>
+                        <p>收银系统 + 商品录入 + 库存初始化，日常收银可用</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>会员与营销（3天）</h4>
+                        <p>开通会员储值积分，做开业/店庆活动，拉新锁客</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>线上化运营（7天）</h4>
+                        <p>上线小程序商城，做社区团购，数据分析优化选品</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>🏪</span>
+                适合哪些门店？
+            </h3>
+            <div class="shop-types">
+                <div class="shop-type">
+                    <div class="icon">👨‍👩‍👧</div>
+                    <p>夫妻便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🥬</div>
+                    <p>生鲜果蔬店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🎓</div>
+                    <p>校园便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🏢</div>
+                    <p>写字楼便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🏬</div>
+                    <p>连锁便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">📍</div>
+                    <p>团购自提点</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span>💰 数字化改造，实实在在的收益</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📈</span>
+                六大核心收益
+            </h3>
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">90%</div>
+                        <div class="unit">效率提升</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>盘点效率提升90%</h4>
+                        <p>从几小时缩短到十几分钟</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">30%</div>
+                        <div class="unit">损耗降低</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>损耗降低15%~30%</h4>
+                        <p>临期、过期、丢失明显减少</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">40%</div>
+                        <div class="unit">营收提升</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>营业额提升15%~40%</h4>
+                        <p>会员储值+线上团购带动复购</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">⏰</div>
+                        <div class="unit">解放老板</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>老板不用天天守店</h4>
+                        <p>手机看店，有时间做营销和扩张</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">✅</div>
+                        <div class="unit">账目清晰</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>账目100%清晰</h4>
+                        <p>每天赚多少、花多少一目了然</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">💪</div>
+                        <div class="unit">竞争力</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>竞争力大幅增强</h4>
+                        <p>对抗周边超市、外卖平台更有优势</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <h3>🎯 方案总结</h3>
+            <p>
+                社区便利店/超市客户最多、最好谈、最容易落地，数字化需求简单直接，不需要复杂实施，一套标准化系统就能满足90%门店需求。<br><br>
+                非常适合批量拓客、一条街多家签约，快速形成稳定业务收入。
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>📞 咨询热线：400-XXX-XXXX | 微信：13XXXXXXXXX</p>
+            <p>© 2026 便利店数字化解决方案 · 专注零售门店数字化升级</p>
+        </div>
+    </div>
+</body>
+</html>📦</div>
+                    <h4>进销存一体化</h4>
+                    <p>进货-销售-库存-盘点全程在线</p>
+                </div>
+                <div class="goal-item">
+                    <div class="icon">💳</div>
+                    <h4>收银高效化</h4>
+                    <p>多渠道收款自动对账，杜绝错账</p>
+                </div>
+                <div class="goal-item">
+                    <div class="icon">👥</div>
+                    <h4>会员精细化</h4>
+                    <p>储值积分优惠券，社群运营闭环</p>
+                </div>
+                <div class="goal-item">
+                    <div class="icon">📈</div>
+                    <h4>经营数据化</h4>
+                    <p>手机实时看营业额、毛利、畅销品</p>
+                </div>
+                <div class="goal-item">
+                    <div class="icon">🛒</div>
+                    <h4>线上线下一体化</h4>
+                    <p>到店+自提+社区配送，提升营收</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span>🔧 六大核心功能模块</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>⚙️</span>
+                系统整体架构
+            </h3>
+            <div class="modules" style="gap: 10px; grid-template-columns: 1fr 1fr; display: grid;">
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">💻</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">前台收银端</h4>
+                        <p style="font-size: 11px; color: #64748b;">收银机/手机收银</p>
+                    </div>
+                </div>
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">🖥️</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">后台管理端</h4>
+                        <p style="font-size: 11px; color: #64748b;">商品库存会员财务</p>
+                    </div>
+                </div>
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">📱</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">老板移动端</h4>
+                        <p style="font-size: 11px; color: #64748b;">微信小程序看数据</p>
+                    </div>
+                </div>
+                <div class="module-item" style="padding: 12px;">
+                    <div class="module-icon" style="width: 32px; height: 32px; font-size: 16px;">🛍️</div>
+                    <div style="margin-top: 8px;">
+                        <h4 style="font-size: 13px;">顾客小程序端</h4>
+                        <p style="font-size: 11px; color: #64748b;">下单充值领券查积分</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>💰</span>
+                模块一：智能收银系统
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">扫码收款</span>
+                <span class="feature-tag">微信支付宝</span>
+                <span class="feature-tag">云闪付</span>
+                <span class="feature-tag">一码支付</span>
+                <span class="feature-tag">语音播报</span>
+                <span class="feature-tag">小票打印</span>
+                <span class="feature-tag">挂单抹零</span>
+                <span class="feature-tag">优惠折扣</span>
+                <span class="feature-tag">交接班统计</span>
+                <span class="feature-tag">防作弊日志</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📦</span>
+                模块二：商品 & 进销存管理
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">条码一键录入</span>
+                <span class="feature-tag">批量导入</span>
+                <span class="feature-tag">分类管理</span>
+                <span class="feature-tag">采购入库</span>
+                <span class="feature-tag">进价记录</span>
+                <span class="feature-tag">实时扣库存</span>
+                <span class="feature-tag">库存预警</span>
+                <span class="feature-tag">手机扫码盘点</span>
+                <span class="feature-tag">盈亏报表</span>
+                <span class="feature-tag">临期提醒</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>👥</span>
+                模块三：会员营销体系
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">一键开卡</span>
+                <span class="feature-tag">储值赠送</span>
+                <span class="feature-tag">消费积分</span>
+                <span class="feature-tag">积分抵现</span>
+                <span class="feature-tag">满减券</span>
+                <span class="feature-tag">折扣券</span>
+                <span class="feature-tag">新人券</span>
+                <span class="feature-tag">节日券</span>
+                <span class="feature-tag">顾客画像</span>
+                <span class="feature-tag">生日提醒</span>
+                <span class="feature-tag">沉睡唤醒</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>🛒</span>
+                模块四：社区团购 & 线上小程序
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">微信小程序下单</span>
+                <span class="feature-tag">到店自提</span>
+                <span class="feature-tag">社区配送</span>
+                <span class="feature-tag">预售模式</span>
+                <span class="feature-tag">生鲜水果预订</span>
+                <span class="feature-tag">社群接龙</span>
+                <span class="feature-tag">拼团活动</span>
+                <span class="feature-tag">订单自动同步</span>
+                <span class="feature-tag">库存自动扣减</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📊</span>
+                模块五：财务报表 + 模块六：员工管理
+            </h3>
+            <div class="module-features">
+                <span class="feature-tag">营业额报表</span>
+                <span class="feature-tag">毛利分析</span>
+                <span class="feature-tag">畅销/滞销品</span>
+                <span class="feature-tag">会员消费占比</span>
+                <span class="feature-tag">供应商对账</span>
+                <span class="feature-tag">多店数据查看</span>
+                <span class="feature-tag">权限管理</span>
+                <span class="feature-tag">销售提成</span>
+                <span class="feature-tag">打卡排班</span>
+                <span class="feature-tag">操作日志</span>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span>🚀 分阶段落地，最快1天上手</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📅</span>
+                实施步骤
+            </h3>
+            <div class="steps">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <div class="step-content">
+                        <h4>基础上线（1天）</h4>
+                        <p>收银系统 + 商品录入 + 库存初始化，日常收银可用</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <div class="step-content">
+                        <h4>会员与营销（3天）</h4>
+                        <p>开通会员储值积分，做开业/店庆活动，拉新锁客</p>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <div class="step-content">
+                        <h4>线上化运营（7天）</h4>
+                        <p>上线小程序商城，做社区团购，数据分析优化选品</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>🏪</span>
+                适合哪些门店？
+            </h3>
+            <div class="shop-types">
+                <div class="shop-type">
+                    <div class="icon">👨‍👩‍👧</div>
+                    <p>夫妻便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🥬</div>
+                    <p>生鲜果蔬店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🎓</div>
+                    <p>校园便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🏢</div>
+                    <p>写字楼便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">🏬</div>
+                    <p>连锁便利店</p>
+                </div>
+                <div class="shop-type">
+                    <div class="icon">📍</div>
+                    <p>团购自提点</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-divider">
+            <span>💰 数字化改造，实实在在的收益</span>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">
+                <span>📈</span>
+                六大核心收益
+            </h3>
+            <div class="benefits">
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">90%</div>
+                        <div class="unit">效率提升</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>盘点效率提升90%</h4>
+                        <p>从几小时缩短到十几分钟</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">30%</div>
+                        <div class="unit">损耗降低</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>损耗降低15%~30%</h4>
+                        <p>临期、过期、丢失明显减少</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">40%</div>
+                        <div class="unit">营收提升</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>营业额提升15%~40%</h4>
+                        <p>会员储值+线上团购带动复购</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">⏰</div>
+                        <div class="unit">解放老板</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>老板不用天天守店</h4>
+                        <p>手机看店，有时间做营销和扩张</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">✅</div>
+                        <div class="unit">账目清晰</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>账目100%清晰</h4>
+                        <p>每天赚多少、花多少一目了然</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-num">
+                        <div class="num">💪</div>
+                        <div class="unit">竞争力</div>
+                    </div>
+                    <div class="benefit-content">
+                        <h4>竞争力大幅增强</h4>
+                        <p>对抗周边超市、外卖平台更有优势</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="summary-card">
+            <h3>🎯 方案总结</h3>
+            <p>
+                社区便利店/超市客户最多、最好谈、最容易落地，数字化需求简单直接，不需要复杂实施，一套标准化系统就能满足90%门店需求。<br><br>
+                非常适合批量拓客、一条街多家签约，快速形成稳定业务收入。
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>📞 咨询热线：400-XXX-XXXX | 微信：13XXXXXXXXX</p>
+            <p>© 2026 便利店数字化解决方案 · 专注零售门店数字化升级</p>
+        </div>
+    </div>
+</body>
+</html>

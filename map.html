@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>店铺地图标注 - 让客户找到您</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        accent: '#ec4899',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-gradient-primary {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+        }
+        .bg-gradient-warm {
+            background: linear-gradient(135deg, #fef2f2 0%, #fdf4ff 100%) !important;
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+        .shadow-soft {
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15) !important;
+        }
+        .btn-press:active {
+            transform: scale(0.98) !important;
+        }
+        /* 防止横向滚动 */
+        html, body {
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+        }
+        * {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans max-w-md mx-auto min-h-screen">
+    <!-- 头部 -->
+    <div class="bg-gradient-primary px-6 pt-12 pb-16 text-white">
+        <div class="text-sm opacity-90 mb-2">📍 官方地图服务商</div>
+        <h1 class="text-3xl font-bold leading-tight mb-4">让百万客户<br>轻松找到您的店铺</h1>
+        <p class="text-white/80 text-sm">专业团队 · 24小时上线 · 永久有效</p>
+    </div>
+
+    <!-- 平台支持 -->
+    <div class="px-4 -mt-8">
+        <div class="bg-white rounded-2xl shadow-soft p-5">
+            <div class="flex flex-wrap justify-center gap-4 mb-4">
+                <span class="text-sm">🗺️ 百度地图</span>
+                <span class="text-sm">🗺️ 高德地图</span>
+                <span class="text-sm">🗺️ 腾讯地图</span>
+                <span class="text-sm">🗺️ 微信位置</span>
+                <span class="text-sm">🗺️ 抖音</span>
+            </div>
+            <div class="grid grid-cols-4 gap-2 text-center">
+                <div>
+                    <div class="text-lg font-bold text-gradient">98%</div>
+                    <div class="text-xs text-gray-500">审核通过率</div>
+                </div>
+                <div>
+                    <div class="text-lg font-bold text-gradient">10000+</div>
+                    <div class="text-xs text-gray-500">服务商家</div>
+                </div>
+                <div>
+                    <div class="text-lg font-bold text-gradient">24h</div>
+                    <div class="text-xs text-gray-500">极速上线</div>
+                </div>
+                <div>
+                    <div class="text-lg font-bold text-gradient">4.9</div>
+                    <div class="text-xs text-gray-500">用户好评</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 核心优势 -->
+    <div class="px-4 py-8">
+        <h3 class="text-center text-xl font-bold mb-6">💎 为什么选择我们？</h3>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white rounded-xl p-5 shadow-soft text-center">
+                <div class="text-3xl mb-2">🚀</div>
+                <h4 class="font-bold text-gray-800 mb-1">极速上线</h4>
+                <p class="text-sm text-gray-500">24小时内审核通过</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-soft text-center">
+                <div class="text-3xl mb-2">🌐</div>
+                <h4 class="font-bold text-gray-800 mb-1">全平台覆盖</h4>
+                <p class="text-sm text-gray-500">五大地图一次搞定</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-soft text-center">
+                <div class="text-3xl mb-2">💰</div>
+                <h4 class="font-bold text-gray-800 mb-1">永久有效</h4>
+                <p class="text-sm text-gray-500">一次付费终身使用</p>
+            </div>
+            <div class="bg-white rounded-xl p-5 shadow-soft text-center">
+                <div class="text-3xl mb-2">🛡️</div>
+                <h4 class="font-bold text-gray-800 mb-1">安全保障</h4>
+                <p class="text-sm text-gray-500">信息保密不泄露</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 表单区域 -->
+    <div class="px-4 pb-8">
+        <div class="bg-gradient-warm rounded-2xl p-6">
+            <div class="text-center mb-6">
+                <div class="inline-block bg-red-500 text-white text-xs px-3 py-1 rounded-full mb-2">
+                    🔥 今日限时特惠
+                </div>
+                <h2 class="text-xl font-bold text-gray-800 mb-2">立即免费申请</h2>
+                <p class="text-sm text-gray-600">客服30分钟内联系您</p>
+                <div class="mt-3">
+                    <span class="text-gray-400 line-through text-sm">¥299</span>
+                    <span class="text-2xl font-bold text-red-500 ml-2">¥99</span>
+                    <span class="text-sm text-gray-600">/全平台</span>
+                </div>
+                <p class="text-xs text-red-500 mt-1">前10名免费 · 先到先得</p>
+            </div>
+
+            <form id="applyForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">店铺名称 *</label>
+                    <input type="text" placeholder="您的店铺名" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">联系人 *</label>
+                    <input type="text" placeholder="您的姓名" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">电话 *</label>
+                    <input type="tel" placeholder="手机号" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">类目</label>
+                    <select class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition bg-white">
+                        <option>请选择</option>
+                        <option>餐饮美食</option>
+                        <option>服装鞋帽</option>
+                        <option>零售超市</option>
+                        <option>美容美发</option>
+                        <option>酒店住宿</option>
+                        <option>其他</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">所在地区</label>
+                    <input type="text" placeholder="如：江西省上饶市" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">详细地址 *</label>
+                    <input type="text" placeholder="店铺详细地址" class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition">
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-primary text-white font-bold py-4 rounded-xl shadow-lg btn-press transition">
+                    📲 立即申请免费标注
+                </button>
+            </form>
+
+            <div class="flex justify-center gap-6 mt-4 text-sm text-gray-600">
+                <span>🔒 信息保密</span>
+                <span>💰 无效退款</span>
+                <span>📞 全程服务</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="text-center py-6 px-4 text-gray-500 text-sm">
+        <p>📞 服务热线：400-XXX-XXXX | 微信：13XXXXXXXXX</p>
+        <p class="mt-2 text-xs text-gray-400">© 2026 地图标注服务中心 · 官方认证服务商</p>
+    </div>
+
+    <!-- 提交成功弹窗 -->
+    <div id="successModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-2xl p-8 m-6 max-w-sm text-center">
+            <div class="text-5xl mb-4">🎉</div>
+            <h3 class="text-xl font-bold text-gray-800 mb-3">提交成功！</h3>
+            <p class="text-gray-600 mb-6">我们的客服将在30分钟内联系您<br>请保持电话畅通，感谢您的信任！</p>
+            <button onclick="closeModal()" class="bg-gradient-primary text-white font-bold px-8 py-3 rounded-xl btn-press">
+                我知道了
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('applyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('successModal').classList.remove('hidden');
+        });
+
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
