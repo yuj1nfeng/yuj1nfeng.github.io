@@ -18,33 +18,7 @@
             }
         }
     </script>
-    <style>
-        .bg-gradient-primary {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
-        }
-        .bg-gradient-warm {
-            background: linear-gradient(135deg, #fef2f2 0%, #fdf4ff 100%) !important;
-        }
-        .text-gradient {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%) !important;
-            -webkit-background-clip: text !important;
-            -webkit-text-fill-color: transparent !important;
-        }
-        .shadow-soft {
-            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15) !important;
-        }
-        .btn-press:active {
-            transform: scale(0.98) !important;
-        }
-        /* 防止横向滚动 */
-        html, body {
-            max-width: 100vw !important;
-            overflow-x: hidden !important;
-        }
-        * {
-            box-sizing: border-box;
-        }
-    </style>
+    <link rel="stylesheet" href="style/map.css">
 </head>
 <body class="bg-gray-50 font-sans max-w-md mx-auto min-h-screen">
     <!-- 头部 -->
@@ -194,15 +168,6 @@
         </div>
     </div>
 
-    <script>
-        document.getElementById('applyForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('successModal').classList.remove('hidden');
-        });
-
-        function closeModal() {
-            document.getElementById('successModal').classList.add('hidden');
-        }
-    </script>
+    <script src="script/map.js"></script>
 </body>
 </html>

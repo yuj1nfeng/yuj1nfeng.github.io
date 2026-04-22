@@ -3,37 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>COPAW 落地页导航 | 全行业数字化解决方案</title>
+    <title>钛极数字 - 全行业数字化解决方案</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-        .card-hover {
-            transition: all 0.3s ease;
-        }
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        .category-badge {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-    </style>
-
-    <style>
-        /* 防止横向滚动 */
-        html, body {
-            max-width: 100vw !important;
-            overflow-x: hidden !important;
-        }
-        * {
-            box-sizing: border-box;
-        }
-    </style>
+    <link rel="stylesheet" href="style/index.css">
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- 头部 -->
@@ -41,8 +14,8 @@
         <div class="max-w-6xl mx-auto text-center">
             <div class="mb-6">
                 <i class="fas fa-rocket text-6xl mb-4 opacity-90"></i>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">COPAW 落地页导航</h1>
-                <p class="text-xl opacity-90 max-w-2xl mx-auto">全行业数字化解决方案落地页集合，一键获取您需要的业务模板</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">钛极数字</h1>
+                <p class="text-xl opacity-90 max-w-2xl mx-auto">全行业数字化解决方案，让每个行业都有好用的数字化系统</p>
             </div>
             
             <!-- 搜索框 -->
@@ -229,47 +202,19 @@
         <div class="max-w-6xl mx-auto text-center">
             <div class="mb-6">
                 <i class="fas fa-rocket text-4xl mb-4 text-purple-400"></i>
-                <h3 class="text-2xl font-bold mb-2">COPAW 落地页导航</h3>
+                <h3 class="text-2xl font-bold mb-2">钛极数字</h3>
                 <p class="text-gray-400">让每个行业都有好用的数字化解决方案</p>
+                <div class="mt-4 text-sm text-gray-500">
+                    <p>📞 微信/电话：13392819007</p>
+                    <p class="mt-1">📧 邮箱：yujf1007@gmail.com</p>
+                </div>
             </div>
             <div class="border-t border-gray-800 pt-6 mt-6">
-                <p class="text-gray-500 text-sm">© 2025 COPAW. All rights reserved. | 用 ❤️ 打造</p>
+                <p class="text-gray-500 text-sm">© 2025 钛极数字. All rights reserved. | 用 ❤️ 打造</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // 搜索功能
-        const searchInput = document.getElementById('searchInput');
-        const templateGrid = document.getElementById('templateGrid');
-        
-        searchInput.addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const cards = templateGrid.querySelectorAll('a, div.card-hover');
-            
-            cards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const desc = card.querySelector('p').textContent.toLowerCase();
-                const badges = Array.from(card.querySelectorAll('span')).map(s => s.textContent.toLowerCase()).join(' ');
-                
-                if (title.includes(searchTerm) || desc.includes(searchTerm) || badges.includes(searchTerm)) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        });
-
-        // 回车搜索
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                // 可以添加搜索动画
-                this.classList.add('ring-4', 'ring-white/50');
-                setTimeout(() => {
-                    this.classList.remove('ring-4', 'ring-white/50');
-                }, 300);
-            }
-        });
-    </script>
+    <script src="script/index.js"></script>
 </body>
 </html>
