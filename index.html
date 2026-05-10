@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ENTERPRISE DIGITAL TRANSFORMATION</title>
+    <title>企业数字化转型 | ENTERPRISE DIGITAL TRANSFORMATION</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -28,7 +28,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
             background: var(--primary);
             color: var(--text-primary);
             overflow-x: hidden;
@@ -71,6 +71,40 @@
                 linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
             background-size: 60px 60px;
             pointer-events: none;
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .lang-switcher:hover {
+            border-color: var(--accent);
+        }
+
+        .lang-switcher span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.3s ease;
+        }
+
+        .lang-switcher span.active {
+            color: var(--text-primary);
+        }
+
+        .lang-switcher .divider {
+            width: 1px;
+            height: 16px;
+            background: var(--card-border);
         }
 
         /* Navigation */
@@ -616,13 +650,25 @@
         <div class="container">
             <div class="d-flex align-items-center justify-content-between">
                 <div class="logo">
-                    <span class="logo-accent">//</span> TRANSFORM
+                    <span class="logo-accent">//</span> <span data-i18n="nav.logo">TRANSFORM</span>
                 </div>
                 <div class="d-none d-md-flex align-items-center gap-4">
-                    <a href="#services" class="nav-link">Services</a>
-                    <a href="#cases" class="nav-link">Case Studies</a>
-                    <a href="#about" class="nav-link">About</a>
-                    <a href="#contact" class="btn btn-primary btn-sm" style="padding: 10px 20px;">Contact</a>
+                    <a href="#services" class="nav-link" data-i18n="nav.services">服务</a>
+                    <a href="#cases" class="nav-link" data-i18n="nav.cases">案例</a>
+                    <a href="#about" class="nav-link" data-i18n="nav.about">关于</a>
+                    <div class="lang-switcher" id="langSwitcher">
+                        <span class="active" data-lang="zh">中文</span>
+                        <div class="divider"></div>
+                        <span data-lang="en">EN</span>
+                    </div>
+                    <a href="#contact" class="btn btn-primary btn-sm" style="padding: 10px 20px;" data-i18n="nav.contact">联系我们</a>
+                </div>
+                <div class="d-md-none">
+                    <div class="lang-switcher" id="langSwitcherMobile">
+                        <span class="active" data-lang="zh">中文</span>
+                        <div class="divider"></div>
+                        <span data-lang="en">EN</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -633,43 +679,35 @@
         <div class="grid-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <div class="hero-subtitle">
-                    Enterprise Digital Transformation
-                </div>
+                <div class="hero-subtitle" data-i18n="hero.subtitle">企业数字化转型服务</div>
                 <h1 class="hero-title">
-                    Technology is not<br>
-                    a cost center.<br>
-                    It's your <span class="gradient">competitive edge.</span>
+                    <span data-i18n="hero.title.line1">技术不是成本中心，</span><br>
+                    <span data-i18n="hero.title.line2">而是你的</span> <span class="gradient" data-i18n="hero.title.gradient">核心竞争力。</span>
                 </h1>
-                <p class="hero-desc">
-                    We help forward-thinking companies turn technical debt into strategic advantage. 
-                    10+ years of full-stack expertise delivered through a partnership-first approach.
+                <p class="hero-desc" data-i18n="hero.desc">
+                    我们帮助前瞻性企业将技术债务转化为战略优势。10年以上全栈技术经验，以伙伴关系为导向的服务模式。
                 </p>
                 <div class="cta-group">
-                    <a href="#contact" class="btn btn-primary">
-                        Schedule a Consultation →
-                    </a>
-                    <a href="#cases" class="btn btn-secondary">
-                        View Our Work
-                    </a>
+                    <a href="#contact" class="btn btn-primary" data-i18n="hero.cta.primary">预约咨询 →</a>
+                    <a href="#cases" class="btn btn-secondary" data-i18n="hero.cta.secondary">查看案例</a>
                 </div>
 
                 <div class="stats-bar reveal">
                     <div class="stat-item">
                         <div class="stat-number"><span class="accent">10</span>+</div>
-                        <div class="stat-label">Years Experience</div>
+                        <div class="stat-label" data-i18n="stats.years">年经验</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number"><span class="accent">50</span>+</div>
-                        <div class="stat-label">Projects Delivered</div>
+                        <div class="stat-label" data-i18n="stats.projects">项目交付</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number"><span class="accent">¥</span>10M+</div>
-                        <div class="stat-label">Cost Optimized</div>
+                        <div class="stat-label" data-i18n="stats.cost">成本优化</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number"><span class="accent">99</span>%</div>
-                        <div class="stat-label">Client Retention</div>
+                        <div class="stat-label" data-i18n="stats.retention">客户留存</div>
                     </div>
                 </div>
             </div>
@@ -680,102 +718,95 @@
     <section id="services" class="section">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-label">What We Do</div>
-                <h2 class="section-title">Expertise That Drives Results</h2>
-                <p class="section-desc">
-                    We don't just advise — we deliver. Every engagement is hands-on, 
-                    every recommendation is battle-tested.
+                <div class="section-label" data-i18n="services.label">我们的服务</div>
+                <h2 class="section-title" data-i18n="services.title">专业能力，驱动结果</h2>
+                <p class="section-desc" data-i18n="services.desc">
+                    我们不只是提供咨询，我们交付成果。每个项目都是亲力亲为，每个建议都经过实战检验。
                 </p>
             </div>
 
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-icon">☁️</div>
-                    <h3 class="service-title">Cloud Architecture & Cost Governance</h3>
-                    <p class="service-desc">
-                        Comprehensive cloud infrastructure audit and optimization. We identify waste, 
-                        right-size resources, and implement intelligent scaling strategies.
+                    <h3 class="service-title" data-i18n="services.cloud.title">云架构与成本治理</h3>
+                    <p class="service-desc" data-i18n="services.cloud.desc">
+                        全面的云基础设施审计和优化。识别资源浪费，优化资源配置，实施智能扩缩策略。
                     </p>
                     <ul class="service-features">
-                        <li>Full infrastructure utilization audit</li>
-                        <li>Idle resource detection & remediation</li>
-                        <li>Cost allocation & budget alerting</li>
-                        <li>Reserved instance strategy planning</li>
+                        <li data-i18n="services.cloud.f1">全基础设施利用率审计</li>
+                        <li data-i18n="services.cloud.f2">闲置资源检测与修复</li>
+                        <li data-i18n="services.cloud.f3">成本分摊与预算预警</li>
+                        <li data-i18n="services.cloud.f4">预留实例策略规划</li>
                     </ul>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">🔄</div>
-                    <h3 class="service-title">Legacy System Modernization</h3>
-                    <p class="service-desc">
-                        Transform technical debt into digital assets. We modernize aging systems 
-                        without disrupting your business operations.
+                    <h3 class="service-title" data-i18n="services.legacy.title">遗留系统现代化</h3>
+                    <p class="service-desc" data-i18n="services.legacy.desc">
+                        将技术债务转化为数字资产。在不中断业务运营的情况下实现系统现代化升级。
                     </p>
                     <ul class="service-features">
-                        <li>Monolith to microservices transformation</li>
-                        <li>API layer for legacy ERP/CRM systems</li>
-                        <li>Containerization & Kubernetes migration</li>
-                        <li>Zero-downtime data migration</li>
+                        <li data-i18n="services.legacy.f1">单体应用微服务架构改造</li>
+                        <li data-i18n="services.legacy.f2">ERP/CRM 系统 API 化</li>
+                        <li data-i18n="services.legacy.f3">容器化与 Kubernetes 迁移</li>
+                        <li data-i18n="services.legacy.f4">零停机数据迁移</li>
                     </ul>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">⚙️</div>
-                    <h3 class="service-title">Enterprise Automation Platforms</h3>
-                    <p class="service-desc">
-                        Custom internal tools that eliminate manual workflows. We build 
-                        automation platforms your team actually wants to use.
+                    <h3 class="service-title" data-i18n="services.automation.title">企业自动化平台</h3>
+                    <p class="service-desc" data-i18n="services.automation.desc">
+                        消除手动工作流的定制内部工具。构建团队真正愿意使用的自动化平台。
                     </p>
                     <ul class="service-features">
-                        <li>DevOps automation & CI/CD pipelines</li>
-                        <li>Employee lifecycle management systems</li>
-                        <li>Data processing & reporting automation</li>
-                        <li>Compliance audit automation</li>
+                        <li data-i18n="services.automation.f1">DevOps 自动化与 CI/CD 流水线</li>
+                        <li data-i18n="services.automation.f2">员工生命周期管理系统</li>
+                        <li data-i18n="services.automation.f3">数据处理与报表自动化</li>
+                        <li data-i18n="services.automation.f4">合规审计自动化</li>
                     </ul>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">🔒</div>
-                    <h3 class="service-title">Security & Compliance Advisory</h3>
-                    <p class="service-desc">
-                        Proactive security assessment and compliance framework implementation. 
-                        We secure your infrastructure before incidents happen.
+                    <h3 class="service-title" data-i18n="services.security.title">安全与合规咨询</h3>
+                    <p class="service-desc" data-i18n="services.security.desc">
+                        主动安全评估和合规框架实施。在事故发生之前保障您的基础设施安全。
                     </p>
                     <ul class="service-features">
-                        <li>Security configuration hardening</li>
-                        <li>Backup & disaster recovery strategy</li>
-                        <li>Zero-trust architecture design</li>
-                        <li>Regulatory compliance consulting</li>
+                        <li data-i18n="services.security.f1">安全配置加固</li>
+                        <li data-i18n="services.security.f2">备份与灾备策略</li>
+                        <li data-i18n="services.security.f3">零信任架构设计</li>
+                        <li data-i18n="services.security.f4">监管合规咨询</li>
                     </ul>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">📊</div>
-                    <h3 class="service-title">IT Infrastructure Health Assessment</h3>
-                    <p class="service-desc">
-                        A comprehensive diagnostic of your entire technology stack. We identify 
-                        bottlenecks, single points of failure, and optimization opportunities.
+                    <h3 class="service-title" data-i18n="services.health.title">IT 基础设施健康评估</h3>
+                    <p class="service-desc" data-i18n="services.health.desc">
+                        对整个技术栈进行全面诊断。识别瓶颈、单点故障和优化机会。
                     </p>
                     <ul class="service-features">
-                        <li>Full infrastructure performance audit</li>
-                        <li>Bottleneck analysis & resolution</li>
-                        <li>High-availability architecture design</li>
-                        <li>Technology roadmap development</li>
+                        <li data-i18n="services.health.f1">全基础设施性能审计</li>
+                        <li data-i18n="services.health.f2">瓶颈分析与解决</li>
+                        <li data-i18n="services.health.f3">高可用架构设计</li>
+                        <li data-i18n="services.health.f4">技术路线图制定</li>
                     </ul>
                 </div>
 
                 <div class="service-card reveal">
                     <div class="service-icon">🎯</div>
-                    <h3 class="service-title">Technical Strategy Consulting</h3>
-                    <p class="service-desc">
-                        Long-term technology roadmap aligned with your business objectives. 
-                        We help you build sustainable competitive advantage.
+                    <h3 class="service-title" data-i18n="services.strategy.title">技术战略咨询</h3>
+                    <p class="service-desc" data-i18n="services.strategy.desc">
+                        与您的业务目标一致的长期技术路线图。帮助您构建可持续的竞争优势。
                     </p>
                     <ul class="service-features">
-                        <li>Technology stack evaluation & selection</li>
-                        <li>Engineering team capability building</li>
-                        <li>Digital transformation roadmap</li>
-                        <li>Technical debt management strategy</li>
+                        <li data-i18n="services.strategy.f1">技术栈评估与选型</li>
+                        <li data-i18n="services.strategy.f2">工程团队能力建设</li>
+                        <li data-i18n="services.strategy.f3">数字化转型路线图</li>
+                        <li data-i18n="services.strategy.f4">技术债务管理策略</li>
                     </ul>
                 </div>
             </div>
@@ -786,26 +817,25 @@
     <section id="cases" class="section" style="background: linear-gradient(180deg, #0a0a0a 0%, #0f172a 50%, #0a0a0a 100%);">
         <div class="container">
             <div class="section-header reveal">
-                <div class="section-label">Case Studies</div>
-                <h2 class="section-title">Proven Results, Real Impact</h2>
-                <p class="section-desc">
-                    Every engagement is measured by business outcomes, not just technical deliverables.
+                <div class="section-label" data-i18n="cases.label">成功案例</div>
+                <h2 class="section-title" data-i18n="cases.title">已验证的结果，真实的影响</h2>
+                <p class="section-desc" data-i18n="cases.desc">
+                    每个项目都以业务成果衡量，而不仅仅是技术交付。
                 </p>
             </div>
 
             <div class="case-study reveal">
                 <div>
-                    <div class="case-badge">Cloud Cost Optimization</div>
-                    <h3 class="case-title">Cross-Border E-Commerce Platform Cloud Cost Reduction</h3>
-                    <p class="case-desc">
-                        A fast-growing e-commerce company saw cloud costs growing faster than revenue. 
-                        We conducted a comprehensive audit, implemented intelligent auto-scaling, 
-                        and optimized purchasing strategies. The results spoke for themselves.
+                    <div class="case-badge" data-i18n="cases.c1.badge">云成本优化</div>
+                    <h3 class="case-title" data-i18n="cases.c1.title">跨境电商平台云成本治理</h3>
+                    <p class="case-desc" data-i18n="cases.c1.desc">
+                        一家快速增长的电商公司云成本增长速度超过了收入增长。我们进行了全面审计，
+                        实施了智能自动扩缩，并优化了采购策略。结果不言而喻。
                     </p>
                     <div class="case-metrics">
-                        <div class="metric">💰 38% Annual Cost Reduction</div>
-                        <div class="metric">⚡ 22% Performance Improvement</div>
-                        <div class="metric">🎯 14-Day ROI</div>
+                        <div class="metric">💰 38% <span data-i18n="cases.c1.m1">年成本降低</span></div>
+                        <div class="metric">⚡ 22% <span data-i18n="cases.c1.m2">性能提升</span></div>
+                        <div class="metric">🎯 14 <span data-i18n="cases.c1.m3">天投资回报</span></div>
                     </div>
                     <div class="case-tech">
                         <span>Alibaba Cloud ECS</span>
@@ -820,17 +850,16 @@
 
             <div class="case-study reveal">
                 <div>
-                    <div class="case-badge">System Modernization</div>
-                    <h3 class="case-title">Manufacturing ERP System API Enablement</h3>
-                    <p class="case-desc">
-                        A manufacturing firm was locked into a 10-year-old ERP system that couldn't 
-                        integrate with modern SaaS tools. We built an adapter layer that exposed 
-                        120+ RESTful APIs, enabling seamless integration with their entire modern stack.
+                    <div class="case-badge" data-i18n="cases.c2.badge">系统现代化</div>
+                    <h3 class="case-title" data-i18n="cases.c2.title">制造业 ERP 系统 API 化改造</h3>
+                    <p class="case-desc" data-i18n="cases.c2.desc">
+                        一家制造企业使用了10年的ERP系统无法与现代SaaS工具集成。我们构建了适配层，
+                        暴露了120+个RESTful API，实现了与整个现代技术栈的无缝集成。
                     </p>
                     <div class="case-metrics">
-                        <div class="metric">🔌 120+ APIs Exposed</div>
-                        <div class="metric">⏱️ 80% Faster Integration Cycle</div>
-                        <div class="metric">📈 Real-Time Data Sync</div>
+                        <div class="metric">🔌 120+ <span data-i18n="cases.c2.m1">API 暴露</span></div>
+                        <div class="metric">⏱️ 80% <span data-i18n="cases.c2.m2">更快的集成周期</span></div>
+                        <div class="metric">📈 <span data-i18n="cases.c2.m3">实时数据同步</span></div>
                     </div>
                     <div class="case-tech">
                         <span>.NET Core</span>
@@ -845,17 +874,16 @@
 
             <div class="case-study reveal">
                 <div>
-                    <div class="case-badge">Operations Automation</div>
-                    <h3 class="case-title">FinTech Operations Automation Platform</h3>
-                    <p class="case-desc">
-                        A fintech company's operations team was drowning in manual server management 
-                        and deployment tasks. We built a unified automation platform that eliminated 
-                        human error and dramatically reduced MTTR for incidents.
+                    <div class="case-badge" data-i18n="cases.c3.badge">运维自动化</div>
+                    <h3 class="case-title" data-i18n="cases.c3.title">金融科技运维自动化平台</h3>
+                    <p class="case-desc" data-i18n="cases.c3.desc">
+                        一家金融科技公司的运维团队陷入了繁琐的服务器管理和部署任务中。
+                        我们构建了统一的自动化平台，消除了人为错误，并显著降低了事件响应时间。
                     </p>
                     <div class="case-metrics">
-                        <div class="metric">🤖 300% Efficiency Gain</div>
-                        <div class="metric">✅ Zero Manual Errors</div>
-                        <div class="metric">⏰ 60% MTTR Reduction</div>
+                        <div class="metric">🤖 300% <span data-i18n="cases.c3.m1">效率提升</span></div>
+                        <div class="metric">✅ <span data-i18n="cases.c3.m2">零人为错误</span></div>
+                        <div class="metric">⏰ 60% <span data-i18n="cases.c3.m3">MTTR 降低</span></div>
                     </div>
                     <div class="case-tech">
                         <span>PowerShell Core</span>
@@ -870,17 +898,16 @@
 
             <div class="case-study reveal">
                 <div>
-                    <div class="case-badge">Multi-Cloud Migration</div>
-                    <h3 class="case-title">Internet Company Multi-Cloud Data Migration</h3>
-                    <p class="case-desc">
-                        An internet company needed to migrate core services from a single cloud 
-                        provider to a multi-cloud architecture without downtime. We designed and 
-                        executed a zero-downtime migration strategy that moved 50TB+ of data seamlessly.
+                    <div class="case-badge" data-i18n="cases.c4.badge">多云迁移</div>
+                    <h3 class="case-title" data-i18n="cases.c4.title">互联网公司多云数据迁移</h3>
+                    <p class="case-desc" data-i18n="cases.c4.desc">
+                        一家互联网公司需要在不停机的情况下将核心服务从单一云提供商迁移到多云架构。
+                        我们设计并执行了零停机迁移策略，无缝迁移了50TB以上的数据。
                     </p>
                     <div class="case-metrics">
-                        <div class="metric">📦 50TB+ Data Migrated</div>
-                        <div class="metric">🔄 Zero Downtime Cutover</div>
-                        <div class="metric">☁️ Multi-Cloud Architecture</div>
+                        <div class="metric">📦 50TB+ <span data-i18n="cases.c4.m1">数据迁移</span></div>
+                        <div class="metric">🔄 <span data-i18n="cases.c4.m2">零停机切换</span></div>
+                        <div class="metric">☁️ <span data-i18n="cases.c4.m3">多云架构落地</span></div>
                     </div>
                     <div class="case-tech">
                         <span>Alibaba Cloud OSS</span>
@@ -901,40 +928,39 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-header reveal">
-                        <div class="section-label">About Us</div>
-                        <h2 class="section-title">Built Different.</h2>
+                        <div class="section-label" data-i18n="about.label">关于我们</div>
+                        <h2 class="section-title" data-i18n="about.title">与众不同的服务理念</h2>
                     </div>
-                    <p class="section-desc reveal" style="max-width: none;">
-                        We're not your typical consulting firm. We're a small team of senior engineers 
-                        who've spent 10+ years building and operating production systems at scale.
+                    <p class="section-desc reveal" style="max-width: none;" data-i18n="about.desc1">
+                        我们不是传统的咨询公司。我们是一支资深工程师团队，
+                        拥有10年以上大规模生产系统构建和运维经验。
                     </p>
-                    <p class="section-desc reveal" style="max-width: none; margin-top: 16px;">
-                        We don't bring in junior analysts or present 100-slide powerpoints. We roll 
-                        up our sleeves, dive into your systems, and deliver actual results. Every 
-                        recommendation is battle-tested. Every solution is production-ready.
+                    <p class="section-desc reveal" style="max-width: none; margin-top: 16px;" data-i18n="about.desc2">
+                        我们不会派初级分析师，也不会做百页PPT。我们撸起袖子，
+                        深入您的系统，交付实际成果。每个建议都经过实战检验，每个方案都可直接生产部署。
                     </p>
 
                     <div class="row mt-5 reveal" style="gap: 30px;">
                         <div class="col-5 col-md-3">
                             <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--accent);">10+</div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem;">Years Experience</div>
+                            <div style="color: var(--text-secondary); font-size: 0.85rem;" data-i18n="about.s1">年行业经验</div>
                         </div>
                         <div class="col-5 col-md-3">
                             <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--accent);">50+</div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem;">Projects</div>
+                            <div style="color: var(--text-secondary); font-size: 0.85rem;" data-i18n="about.s2">服务项目</div>
                         </div>
                         <div class="col-5 col-md-3">
                             <div style="font-family: 'Space Grotesk', sans-serif; font-size: 2.5rem; font-weight: 700; color: var(--accent);">10M+</div>
-                            <div style="color: var(--text-secondary); font-size: 0.85rem;">Cost Saved</div>
+                            <div style="color: var(--text-secondary); font-size: 0.85rem;" data-i18n="about.s3">累计节省成本</div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="reveal">
-                        <h5 class="fw-bold mb-4" style="font-family: 'Space Grotesk';">Technology Expertise</h5>
+                        <h5 class="fw-bold mb-4" style="font-family: 'Space Grotesk';" data-i18n="about.tech">技术能力</h5>
                         <div class="tech-grid">
                             <div class="tech-category">
-                                <h6>Cloud Platforms</h6>
+                                <h6 data-i18n="about.cloud">云平台</h6>
                                 <div class="tech-tags">
                                     <span>Alibaba Cloud</span>
                                     <span>Tencent Cloud</span>
@@ -943,7 +969,7 @@
                                 </div>
                             </div>
                             <div class="tech-category">
-                                <h6>Backend Development</h6>
+                                <h6 data-i18n="about.backend">后端开发</h6>
                                 <div class="tech-tags">
                                     <span>.NET / C#</span>
                                     <span>Python</span>
@@ -952,7 +978,7 @@
                                 </div>
                             </div>
                             <div class="tech-category">
-                                <h6>Infrastructure</h6>
+                                <h6 data-i18n="about.infra">基础设施</h6>
                                 <div class="tech-tags">
                                     <span>Docker</span>
                                     <span>Kubernetes</span>
@@ -961,7 +987,7 @@
                                 </div>
                             </div>
                             <div class="tech-category">
-                                <h6>Data Storage</h6>
+                                <h6 data-i18n="about.storage">数据存储</h6>
                                 <div class="tech-tags">
                                     <span>PostgreSQL</span>
                                     <span>MySQL</span>
@@ -980,37 +1006,36 @@
     <section id="contact" class="section contact-section">
         <div class="container">
             <div class="section-header text-center reveal">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Ready to Transform?</h2>
-                <p class="section-desc mx-auto">
-                    Schedule a free 30-minute consultation. We'll analyze your current setup and 
-                    provide preliminary improvement recommendations.
+                <div class="section-label" data-i18n="contact.label">联系我们</div>
+                <h2 class="section-title" data-i18n="contact.title">准备好开始转型了吗？</h2>
+                <p class="section-desc mx-auto" data-i18n="contact.desc">
+                    预约免费的30分钟咨询。我们将分析您当前的配置并提供初步的改进建议。
                 </p>
             </div>
 
             <div class="contact-card reveal">
-                <h3>Start the Conversation</h3>
-                <p>We respond within 24 hours.</p>
+                <h3 data-i18n="contact.card.title">开始对话</h3>
+                <p data-i18n="contact.card.desc">我们24小时内回复。</p>
                 <form>
                     <div class="mb-3">
-                        <input type="text" class="form-control form-control-lg" placeholder="Your Name / Company">
+                        <input type="text" class="form-control form-control-lg" data-i18n-placeholder="contact.form.name" placeholder="您的姓名 / 公司">
                     </div>
                     <div class="mb-3">
-                        <input type="email" class="form-control form-control-lg" placeholder="Email Address">
+                        <input type="email" class="form-control form-control-lg" data-i18n-placeholder="contact.form.email" placeholder="邮箱地址">
                     </div>
                     <div class="mb-4">
                         <select class="form-select form-select-lg">
-                            <option value="">Select Service Area</option>
-                            <option>Cloud Cost Optimization</option>
-                            <option>Legacy System Modernization</option>
-                            <option>Enterprise Automation</option>
-                            <option>Security & Compliance</option>
-                            <option>Infrastructure Assessment</option>
-                            <option>Technical Strategy</option>
+                            <option value="" data-i18n="contact.form.select">选择服务领域</option>
+                            <option data-i18n="contact.form.o1">云成本优化</option>
+                            <option data-i18n="contact.form.o2">遗留系统现代化</option>
+                            <option data-i18n="contact.form.o3">企业自动化</option>
+                            <option data-i18n="contact.form.o4">安全与合规</option>
+                            <option data-i18n="contact.form.o5">基础设施评估</option>
+                            <option data-i18n="contact.form.o6">技术战略咨询</option>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100 btn-lg">
-                        Submit Request →
+                    <button type="submit" class="btn btn-primary w-100 btn-lg" data-i18n="contact.form.submit">
+                        提交申请 →
                     </button>
                 </form>
             </div>
@@ -1020,14 +1045,299 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <div class="footer-text">
-                © 2024 Transform Technology Partners. Turning technical complexity into business advantage.
+            <div class="footer-text" data-i18n="footer.text">
+                © 2024 Transform Technology Partners. 将技术复杂性转化为业务优势。
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // i18n translations
+        const translations = {
+            zh: {
+                "nav.logo": "TRANSFORM",
+                "nav.services": "服务",
+                "nav.cases": "案例",
+                "nav.about": "关于",
+                "nav.contact": "联系我们",
+                "hero.subtitle": "企业数字化转型服务",
+                "hero.title.line1": "技术不是成本中心，",
+                "hero.title.line2": "而是你的",
+                "hero.title.gradient": "核心竞争力。",
+                "hero.desc": "我们帮助前瞻性企业将技术债务转化为战略优势。10年以上全栈技术经验，以伙伴关系为导向的服务模式。",
+                "hero.cta.primary": "预约咨询 →",
+                "hero.cta.secondary": "查看案例",
+                "stats.years": "年经验",
+                "stats.projects": "项目交付",
+                "stats.cost": "成本优化",
+                "stats.retention": "客户留存",
+                "services.label": "我们的服务",
+                "services.title": "专业能力，驱动结果",
+                "services.desc": "我们不只是提供咨询，我们交付成果。每个项目都是亲力亲为，每个建议都经过实战检验。",
+                "services.cloud.title": "云架构与成本治理",
+                "services.cloud.desc": "全面的云基础设施审计和优化。识别资源浪费，优化资源配置，实施智能扩缩策略。",
+                "services.cloud.f1": "全基础设施利用率审计",
+                "services.cloud.f2": "闲置资源检测与修复",
+                "services.cloud.f3": "成本分摊与预算预警",
+                "services.cloud.f4": "预留实例策略规划",
+                "services.legacy.title": "遗留系统现代化",
+                "services.legacy.desc": "将技术债务转化为数字资产。在不中断业务运营的情况下实现系统现代化升级。",
+                "services.legacy.f1": "单体应用微服务架构改造",
+                "services.legacy.f2": "ERP/CRM 系统 API 化",
+                "services.legacy.f3": "容器化与 Kubernetes 迁移",
+                "services.legacy.f4": "零停机数据迁移",
+                "services.automation.title": "企业自动化平台",
+                "services.automation.desc": "消除手动工作流的定制内部工具。构建团队真正愿意使用的自动化平台。",
+                "services.automation.f1": "DevOps 自动化与 CI/CD 流水线",
+                "services.automation.f2": "员工生命周期管理系统",
+                "services.automation.f3": "数据处理与报表自动化",
+                "services.automation.f4": "合规审计自动化",
+                "services.security.title": "安全与合规咨询",
+                "services.security.desc": "主动安全评估和合规框架实施。在事故发生之前保障您的基础设施安全。",
+                "services.security.f1": "安全配置加固",
+                "services.security.f2": "备份与灾备策略",
+                "services.security.f3": "零信任架构设计",
+                "services.security.f4": "监管合规咨询",
+                "services.health.title": "IT 基础设施健康评估",
+                "services.health.desc": "对整个技术栈进行全面诊断。识别瓶颈、单点故障和优化机会。",
+                "services.health.f1": "全基础设施性能审计",
+                "services.health.f2": "瓶颈分析与解决",
+                "services.health.f3": "高可用架构设计",
+                "services.health.f4": "技术路线图制定",
+                "services.strategy.title": "技术战略咨询",
+                "services.strategy.desc": "与您的业务目标一致的长期技术路线图。帮助您构建可持续的竞争优势。",
+                "services.strategy.f1": "技术栈评估与选型",
+                "services.strategy.f2": "工程团队能力建设",
+                "services.strategy.f3": "数字化转型路线图",
+                "services.strategy.f4": "技术债务管理策略",
+                "cases.label": "成功案例",
+                "cases.title": "已验证的结果，真实的影响",
+                "cases.desc": "每个项目都以业务成果衡量，而不仅仅是技术交付。",
+                "cases.c1.badge": "云成本优化",
+                "cases.c1.title": "跨境电商平台云成本治理",
+                "cases.c1.desc": "一家快速增长的电商公司云成本增长速度超过了收入增长。我们进行了全面审计，实施了智能自动扩缩，并优化了采购策略。结果不言而喻。",
+                "cases.c1.m1": "年成本降低",
+                "cases.c1.m2": "性能提升",
+                "cases.c1.m3": "天投资回报",
+                "cases.c2.badge": "系统现代化",
+                "cases.c2.title": "制造业 ERP 系统 API 化改造",
+                "cases.c2.desc": "一家制造企业使用了10年的ERP系统无法与现代SaaS工具集成。我们构建了适配层，暴露了120+个RESTful API，实现了与整个现代技术栈的无缝集成。",
+                "cases.c2.m1": "API 暴露",
+                "cases.c2.m2": "更快的集成周期",
+                "cases.c2.m3": "实时数据同步",
+                "cases.c3.badge": "运维自动化",
+                "cases.c3.title": "金融科技运维自动化平台",
+                "cases.c3.desc": "一家金融科技公司的运维团队陷入了繁琐的服务器管理和部署任务中。我们构建了统一的自动化平台，消除了人为错误，并显著降低了事件响应时间。",
+                "cases.c3.m1": "效率提升",
+                "cases.c3.m2": "零人为错误",
+                "cases.c3.m3": "MTTR 降低",
+                "cases.c4.badge": "多云迁移",
+                "cases.c4.title": "互联网公司多云数据迁移",
+                "cases.c4.desc": "一家互联网公司需要在不停机的情况下将核心服务从单一云提供商迁移到多云架构。我们设计并执行了零停机迁移策略，无缝迁移了50TB以上的数据。",
+                "cases.c4.m1": "数据迁移",
+                "cases.c4.m2": "零停机切换",
+                "cases.c4.m3": "多云架构落地",
+                "about.label": "关于我们",
+                "about.title": "与众不同的服务理念",
+                "about.desc1": "我们不是传统的咨询公司。我们是一支资深工程师团队，拥有10年以上大规模生产系统构建和运维经验。",
+                "about.desc2": "我们不会派初级分析师，也不会做百页PPT。我们撸起袖子，深入您的系统，交付实际成果。每个建议都经过实战检验，每个方案都可直接生产部署。",
+                "about.s1": "年行业经验",
+                "about.s2": "服务项目",
+                "about.s3": "累计节省成本",
+                "about.tech": "技术能力",
+                "about.cloud": "云平台",
+                "about.backend": "后端开发",
+                "about.infra": "基础设施",
+                "about.storage": "数据存储",
+                "contact.label": "联系我们",
+                "contact.title": "准备好开始转型了吗？",
+                "contact.desc": "预约免费的30分钟咨询。我们将分析您当前的配置并提供初步的改进建议。",
+                "contact.card.title": "开始对话",
+                "contact.card.desc": "我们24小时内回复。",
+                "contact.form.name": "您的姓名 / 公司",
+                "contact.form.email": "邮箱地址",
+                "contact.form.select": "选择服务领域",
+                "contact.form.o1": "云成本优化",
+                "contact.form.o2": "遗留系统现代化",
+                "contact.form.o3": "企业自动化",
+                "contact.form.o4": "安全与合规",
+                "contact.form.o5": "基础设施评估",
+                "contact.form.o6": "技术战略咨询",
+                "contact.form.submit": "提交申请 →",
+                "footer.text": "© 2024 Transform Technology Partners. 将技术复杂性转化为业务优势。"
+            },
+            en: {
+                "nav.logo": "TRANSFORM",
+                "nav.services": "Services",
+                "nav.cases": "Case Studies",
+                "nav.about": "About",
+                "nav.contact": "Contact",
+                "hero.subtitle": "Enterprise Digital Transformation",
+                "hero.title.line1": "Technology is not a cost center.",
+                "hero.title.line2": "It's your",
+                "hero.title.gradient": "competitive edge.",
+                "hero.desc": "We help forward-thinking companies turn technical debt into strategic advantage. 10+ years of full-stack expertise delivered through a partnership-first approach.",
+                "hero.cta.primary": "Schedule Consultation →",
+                "hero.cta.secondary": "View Our Work",
+                "stats.years": "Years Experience",
+                "stats.projects": "Projects Delivered",
+                "stats.cost": "Cost Optimized",
+                "stats.retention": "Client Retention",
+                "services.label": "What We Do",
+                "services.title": "Expertise That Drives Results",
+                "services.desc": "We don't just advise — we deliver. Every engagement is hands-on, every recommendation is battle-tested.",
+                "services.cloud.title": "Cloud Architecture & Cost Governance",
+                "services.cloud.desc": "Comprehensive cloud infrastructure audit and optimization. We identify waste, right-size resources, and implement intelligent scaling strategies.",
+                "services.cloud.f1": "Full infrastructure utilization audit",
+                "services.cloud.f2": "Idle resource detection & remediation",
+                "services.cloud.f3": "Cost allocation & budget alerting",
+                "services.cloud.f4": "Reserved instance strategy planning",
+                "services.legacy.title": "Legacy System Modernization",
+                "services.legacy.desc": "Transform technical debt into digital assets. We modernize aging systems without disrupting your business operations.",
+                "services.legacy.f1": "Monolith to microservices transformation",
+                "services.legacy.f2": "API layer for legacy ERP/CRM systems",
+                "services.legacy.f3": "Containerization & Kubernetes migration",
+                "services.legacy.f4": "Zero-downtime data migration",
+                "services.automation.title": "Enterprise Automation Platforms",
+                "services.automation.desc": "Custom internal tools that eliminate manual workflows. We build automation platforms your team actually wants to use.",
+                "services.automation.f1": "DevOps automation & CI/CD pipelines",
+                "services.automation.f2": "Employee lifecycle management systems",
+                "services.automation.f3": "Data processing & reporting automation",
+                "services.automation.f4": "Compliance audit automation",
+                "services.security.title": "Security & Compliance Advisory",
+                "services.security.desc": "Proactive security assessment and compliance framework implementation. We secure your infrastructure before incidents happen.",
+                "services.security.f1": "Security configuration hardening",
+                "services.security.f2": "Backup & disaster recovery strategy",
+                "services.security.f3": "Zero-trust architecture design",
+                "services.security.f4": "Regulatory compliance consulting",
+                "services.health.title": "IT Infrastructure Health Assessment",
+                "services.health.desc": "A comprehensive diagnostic of your entire technology stack. We identify bottlenecks, single points of failure, and optimization opportunities.",
+                "services.health.f1": "Full infrastructure performance audit",
+                "services.health.f2": "Bottleneck analysis & resolution",
+                "services.health.f3": "High-availability architecture design",
+                "services.health.f4": "Technology roadmap development",
+                "services.strategy.title": "Technical Strategy Consulting",
+                "services.strategy.desc": "Long-term technology roadmap aligned with your business objectives. We help you build sustainable competitive advantage.",
+                "services.strategy.f1": "Technology stack evaluation & selection",
+                "services.strategy.f2": "Engineering team capability building",
+                "services.strategy.f3": "Digital transformation roadmap",
+                "services.strategy.f4": "Technical debt management strategy",
+                "cases.label": "Case Studies",
+                "cases.title": "Proven Results, Real Impact",
+                "cases.desc": "Every engagement is measured by business outcomes, not just technical deliverables.",
+                "cases.c1.badge": "Cloud Cost Optimization",
+                "cases.c1.title": "Cross-Border E-Commerce Platform Cloud Cost Reduction",
+                "cases.c1.desc": "A fast-growing e-commerce company saw cloud costs growing faster than revenue. We conducted a comprehensive audit, implemented intelligent auto-scaling, and optimized purchasing strategies. The results spoke for themselves.",
+                "cases.c1.m1": "Annual Cost Reduction",
+                "cases.c1.m2": "Performance Improvement",
+                "cases.c1.m3": "Day ROI",
+                "cases.c2.badge": "System Modernization",
+                "cases.c2.title": "Manufacturing ERP System API Enablement",
+                "cases.c2.desc": "A manufacturing firm was locked into a 10-year-old ERP system that couldn't integrate with modern SaaS tools. We built an adapter layer that exposed 120+ RESTful APIs, enabling seamless integration with their entire modern stack.",
+                "cases.c2.m1": "APIs Exposed",
+                "cases.c2.m2": "Faster Integration Cycle",
+                "cases.c2.m3": "Real-Time Data Sync",
+                "cases.c3.badge": "Operations Automation",
+                "cases.c3.title": "FinTech Operations Automation Platform",
+                "cases.c3.desc": "A fintech company's operations team was drowning in manual server management and deployment tasks. We built a unified automation platform that eliminated human error and dramatically reduced MTTR for incidents.",
+                "cases.c3.m1": "Efficiency Gain",
+                "cases.c3.m2": "Zero Manual Errors",
+                "cases.c3.m3": "MTTR Reduction",
+                "cases.c4.badge": "Multi-Cloud Migration",
+                "cases.c4.title": "Internet Company Multi-Cloud Data Migration",
+                "cases.c4.desc": "An internet company needed to migrate core services from a single cloud provider to a multi-cloud architecture without downtime. We designed and executed a zero-downtime migration strategy that moved 50TB+ of data seamlessly.",
+                "cases.c4.m1": "Data Migrated",
+                "cases.c4.m2": "Zero Downtime Cutover",
+                "cases.c4.m3": "Multi-Cloud Architecture",
+                "about.label": "About Us",
+                "about.title": "Built Different.",
+                "about.desc1": "We're not your typical consulting firm. We're a small team of senior engineers who've spent 10+ years building and operating production systems at scale.",
+                "about.desc2": "We don't bring in junior analysts or present 100-slide powerpoints. We roll up our sleeves, dive into your systems, and deliver actual results. Every recommendation is battle-tested. Every solution is production-ready.",
+                "about.s1": "Years Experience",
+                "about.s2": "Projects",
+                "about.s3": "Cost Saved",
+                "about.tech": "Technology Expertise",
+                "about.cloud": "Cloud Platforms",
+                "about.backend": "Backend Development",
+                "about.infra": "Infrastructure",
+                "about.storage": "Data Storage",
+                "contact.label": "Get In Touch",
+                "contact.title": "Ready to Transform?",
+                "contact.desc": "Schedule a free 30-minute consultation. We'll analyze your current setup and provide preliminary improvement recommendations.",
+                "contact.card.title": "Start the Conversation",
+                "contact.card.desc": "We respond within 24 hours.",
+                "contact.form.name": "Your Name / Company",
+                "contact.form.email": "Email Address",
+                "contact.form.select": "Select Service Area",
+                "contact.form.o1": "Cloud Cost Optimization",
+                "contact.form.o2": "Legacy System Modernization",
+                "contact.form.o3": "Enterprise Automation",
+                "contact.form.o4": "Security & Compliance",
+                "contact.form.o5": "Infrastructure Assessment",
+                "contact.form.o6": "Technical Strategy",
+                "contact.form.submit": "Submit Request →",
+                "footer.text": "© 2024 Transform Technology Partners. Turning technical complexity into business advantage."
+            }
+        };
+
+        // Language switching function
+        let currentLang = 'zh';
+
+        function switchLanguage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            
+            // Update all text content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) {
+                    el.placeholder = t[key];
+                }
+            });
+
+            // Update lang switcher active state
+            document.querySelectorAll('.lang-switcher span').forEach(span => {
+                if (span.getAttribute('data-lang') === lang) {
+                    span.classList.add('active');
+                } else {
+                    span.classList.remove('active');
+                }
+            });
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+            // Save preference
+            localStorage.setItem('preferred-lang', lang);
+        }
+
+        // Initialize language switcher
+        document.querySelectorAll('.lang-switcher').forEach(switcher => {
+            switcher.querySelectorAll('span').forEach(span => {
+                span.addEventListener('click', () => {
+                    const lang = span.getAttribute('data-lang');
+                    if (lang) {
+                        switchLanguage(lang);
+                    }
+                });
+            });
+        });
+
+        // Load saved language preference
+        const savedLang = localStorage.getItem('preferred-lang');
+        if (savedLang) {
+            switchLanguage(savedLang);
+        }
+
         // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const nav = document.querySelector('.nav-container');
