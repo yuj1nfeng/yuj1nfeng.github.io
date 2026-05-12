@@ -1,0 +1,17 @@
+{
+  "name": "Yujin Feng",
+  "short_name": "yujinfeng",
+  "description": "Yujin Feng's GitHub Homepage",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#24292e",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
